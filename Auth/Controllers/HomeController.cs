@@ -1,4 +1,6 @@
 ﻿using Auth.Models;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -6,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace Auth.Controllers
@@ -29,26 +32,50 @@ namespace Auth.Controllers
             return View();
         }
 
-        [Authorize]
+        [HttpGet("denied")]
+        public IActionResult Denied()
+        {
+            return View();
+        }
+
+        [Authorize(Roles = "Admin")]
         public IActionResult Secured()
         {
             return View();
         }
 
         [HttpGet("login")]
-        public IActionResult Login()
+        public IActionResult Login(string returnUrl)
         {
+            ViewData["ReturnUrl"] = returnUrl;
             return View();
         }
 
         [HttpPost("login")]
-        public IActionResult Validate(string username, string password)
+        public async Task<IActionResult> Validate(string username, string password, string returnUrl)
         {
+            ViewData["ReturnUrl"] = returnUrl;
             if (username == "phil" && password == "bird")
             {
-                return Ok();
+                var claims = new List<Claim>();
+                claims.Add(new Claim("username", username));
+                claims.Add(new Claim(ClaimTypes.NameIdentifier, username));
+                claims.Add(new Claim(ClaimTypes.Name, "Dr. Phil Battley"));
+
+                var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+                var claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
+                await HttpContext.SignInAsync(claimsPrincipal);
+                return Redirect(returnUrl);
             }
-            return BadRequest();
+            TempData["Error"]="Error. Username or password is Invalid";
+            return View("login");
+        }
+
+        [Authorize]
+        public async Task<IActionResult> Logout(string returnUrl)
+        {
+            await HttpContext.SignOutAsync();
+            return Redirect("/");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
