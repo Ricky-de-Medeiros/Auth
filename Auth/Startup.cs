@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication.Google;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -26,7 +27,11 @@ namespace Auth
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).
+            services.AddAuthentication(options =>
+            {
+                options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = GoogleDefaults.AuthenticationScheme;
+            }).
                 AddCookie(options =>
                 {
                     options.LoginPath = "/login";
@@ -35,10 +40,10 @@ namespace Auth
                     {
                         OnSigningIn = async context =>
                         {
-                            var principal = context.Principal; 
-                            if(principal.HasClaim(c => c.Type == ClaimTypes.NameIdentifier))
+                            var principal = context.Principal;
+                            if (principal.HasClaim(c => c.Type == ClaimTypes.NameIdentifier))
                             {
-                                if(principal.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value == "phil")
+                                if (principal.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value == "phil")
                                 {
                                     var claimsIdentity = principal.Identity as ClaimsIdentity;
                                     claimsIdentity.AddClaim(new Claim(ClaimTypes.Role, "Admin"));
@@ -55,6 +60,12 @@ namespace Auth
                             await Task.CompletedTask;
                         }
                     };
+                }).AddGoogle(options =>
+                {
+                    options.ClientId = "32168202201-bqkuh50d2gme26hv1soucjfejovfae9p.apps.googleusercontent.com";
+                    options.ClientSecret = "AMqQ_rbJguWwQRTHTIpdkSOd";
+                    options.CallbackPath = "/auth";
+                    options.AuthorizationEndpoint += "?prompt=consent";
                 });
         }
 
