@@ -35,7 +35,7 @@ namespace Auth
                     {
                         OnSigningIn = async context =>
                         {
-                            var principal = context.Principal;
+                            var principal = context.Principal; 
                             if(principal.HasClaim(c => c.Type == ClaimTypes.NameIdentifier))
                             {
                                 if(principal.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value == "phil")
