@@ -38,7 +38,7 @@ namespace Auth.Controllers
             return View();
         }
 
-        [Authorize(Roles = "Admin")]
+        [Authorize/*(Roles = "Admin")*/]
         public IActionResult Secured()
         {
             return View();
@@ -72,10 +72,10 @@ namespace Auth.Controllers
         }
 
         [Authorize]
-        public async Task<IActionResult> Logout(string returnUrl)
+        public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync();
-            return Redirect("/");
+            return Redirect(@"https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue=https://localhost:44358/");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
