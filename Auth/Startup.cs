@@ -2,12 +2,9 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.Google;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -30,7 +27,7 @@ namespace Auth
             services.AddAuthentication(options =>
             {
                 options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-                options.DefaultChallengeScheme = GoogleDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = "GoogleOpenID";
             }).
                 AddCookie(options =>
                 {
@@ -59,14 +56,42 @@ namespace Auth
                         {
                             await Task.CompletedTask;
                         }
+
                     };
-                }).AddGoogle(options =>
+
+
+                })
+                .AddOpenIdConnect("GoogleOpenID", Options =>
                 {
-                    options.ClientId = "32168202201-bqkuh50d2gme26hv1soucjfejovfae9p.apps.googleusercontent.com";
-                    options.ClientSecret = "AMqQ_rbJguWwQRTHTIpdkSOd";
-                    options.CallbackPath = "/auth";
-                    options.AuthorizationEndpoint += "?prompt=consent";
+
+                    Options.Authority = "https://accounts.google.com";
+                    Options.ClientId = "32168202201-bqkuh50d2gme26hv1soucjfejovfae9p.apps.googleusercontent.com";
+                    Options.ClientSecret = "AMqQ_rbJguWwQRTHTIpdkSOd";
+                    Options.CallbackPath = "/auth";
+                    Options.SaveTokens = true;
+                    Options.Events = new Microsoft.AspNetCore.Authentication.OpenIdConnect.OpenIdConnectEvents()
+                    {
+                        OnTokenValidated = async context =>
+                        {
+
+                            //var claims = context.Principal.Claims;
+                            //if (context.Principal.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value == "")
+                            //{
+
+                            //    var claimsIdentity = context.Principal.Identity as ClaimsIdentity;
+                            //}
+
+                        }
+                    };
                 });
+                
+                //.AddGoogle(options =>
+                //{
+                //    options.ClientId = "32168202201-bqkuh50d2gme26hv1soucjfejovfae9p.apps.googleusercontent.com";
+                //    options.ClientSecret = "AMqQ_rbJguWwQRTHTIpdkSOd";
+                //    options.CallbackPath = "/auth";
+                //    options.AuthorizationEndpoint += "?prompt=consent";
+                //});
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
