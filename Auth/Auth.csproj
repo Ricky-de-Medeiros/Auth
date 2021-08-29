@@ -6,6 +6,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Views\Home\Quiz.cshtml" />
+    <Content Remove="Views\Home\QuizEnd.cshtml" />
+    <Content Remove="Views\Home\QuizOptions.cshtml" />
+    <Content Remove="Views\Home\QuizStart.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Views\Home\Quiz.cshtml" />
+    <None Include="Views\Home\QuizEnd.cshtml" />
+    <None Include="Views\Home\QuizOptions.cshtml" />
+    <None Include="Views\Home\QuizStart.cshtml" />
+    <None Include="wwwroot\css\style.css" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="5.0.9" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="5.0.9" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="5.0.9" />

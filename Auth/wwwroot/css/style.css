@@ -1,0 +1,368 @@
+header
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display:flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 1px 0px;
+    z-index: 10;
+    background: #00E0AA;
+    font-family: "Montserrat";
+    mix-blend-mode: normal;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    transition: top 0.3s;
+}
+header .logo
+{
+    position: relative;
+    font-size: 1.5em;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+}
+header .navigation
+{
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    flex-wrap: wrap ;
+    margin: 10px 0;
+    text-align: center;
+}
+header .navigation li
+{
+    list-style: none;
+    margin: 0 10px;
+}
+header .navigation li a
+{
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+header .navigation li a:hover
+{
+    color:gray;
+}
+
+header .button1
+{
+    width: 90px;
+    height: 40px;
+    background: linear-gradient(180deg, #A4E39E 34.38%, rgba(150, 213, 163, 0.901984) 65.62%, rgba(145, 208, 165, 0.863258) 99.99%, rgba(32, 91, 204, 0.05) 100%);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+    border-radius: 35px;
+    border-width: 0px;
+    font-family: "Montserrat";
+    color: #fff;
+    font-style: normal;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.banner
+{
+    background: #fff;
+    padding: 0px 150px 100px;
+    min-height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.banner .content
+{
+    max-width: 700px;
+}
+.banner .content h2 
+{
+    width: 237px;
+    height: 48px;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 44px;
+    color: rgb(177, 59, 177);
+    font-weight: 700;
+}
+.banner .content p
+{
+    position: absolute;
+    width: 407px;
+    height: 58px;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 29px;
+    color: #878787;
+}
+.button2 
+{
+    width: 174px;
+    height: 55px;
+    background: linear-gradient(180deg, #00E0AA 0%, #00D3E0 100%);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-width: 0px;
+    font-family: Montserrat;
+    color: #fff;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 29px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+.body
+{
+    background: linear-gradient(180deg, #FEFFD9 0%, rgba(254, 255, 217, 0) 100%);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.body .contentSignUp
+{
+    max-width: 700px;
+}
+.body .contentSignUp h1
+{
+    color: rgba(110, 140, 246, 0.97);
+    padding: 100px 220px 100px;
+    width: 267px;
+    height: 50px;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bolder;
+    font-size: 36px;
+    line-height: 44px;
+    text-align: center;
+}
+
+.body .contentSignUp p
+{
+    padding: 10px 200px 200px;
+    width: 461px;
+    height: 58px;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bolder;
+    font-size: 24px;
+    line-height: 29px;
+    text-align: center;
+}
+.QPage
+{
+    background: linear-gradient(180deg, #ACEDBE 0%, rgba(230, 255, 237, 0) 100%);
+    margin-left: -10px;
+    margin-right: -7px;
+    font-family: Montserrat;
+    font-style: normal;
+}
+
+.QPage .content
+{
+    padding: 170px;
+    text-align: center;
+}
+.QPage .content h2
+{    
+    
+    font-weight: bolder;
+    font-size: 36px;
+    line-height: 44px;
+    color: #000000;
+    
+}
+.QPage1 
+{
+    padding: 100px 100px 100px ;
+    background: linear-gradient(180deg, #ACEDBE 0%, rgba(230, 255, 237, 0) 100%);
+    margin-left: -10px;
+    margin-right: -7px;
+    font-family: Montserrat;
+    font-style: normal;
+    
+}
+.QPage1 li
+{
+    padding: 20px;
+    list-style: none;
+    text-align: center;
+    font-family: Sanchez;
+    font-weight: 500;
+    font-size: x-large;
+}
+.QPage1 select
+{
+    margin: 10px 10px 10px;
+    width: 20%;
+    padding: 16px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #f1f1f1;
+    font-size: medium;
+}
+.QPage1 .buttons
+{
+    padding: 100px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.buttonsopt
+{
+    width: 193px;
+    height: 53px;
+    background: linear-gradient(180deg, rgba(0, 224, 170, 0.863258) 0%, rgba(183, 255, 206, 0.854625) 100%);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    transform: rotate(-0.2deg);
+    font-style: normal;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 22px;
+    font-family: Montserrat;
+    border: 0px;
+    cursor: pointer;
+}
+
+.QPQuestions
+{
+    background: linear-gradient(180deg, #ACEDBE 0%, rgba(230, 255, 237, 0) 100%);
+    margin-left: -10px;
+    margin-right: -7px;
+}   
+.QPQuestions .Question 
+{ 
+    font-family: Montserrat;
+    font-style: normal;
+    text-align: center;
+    padding: 100px;
+
+}
+.QPQuestions .Question .audio-container
+{
+    display: block;
+    margin: 0 auto;
+    width: 600px;
+    box-shadow: 0 4px 8px -4px rgba(0, 0, 0, 0.3);
+    font-family: Verdana;
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+.QPQuestions .Question .audio-container .audio 
+{
+    background: rgb(0, 0, 0, 0.8);
+    width: 100%;
+    height: 150px;
+}
+  
+.QPQuestions .Question .audio-container .track-name 
+{
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 8px 32px;
+    border-radius: 10px;
+    font-size: 8x;
+  }
+  
+.QPQuestions .Question .audio-container .btn 
+{
+    padding: 19px 10px 12px;
+    width: 24px;
+    margin-right: 8px;
+    cursor: pointer;
+    display: inline-block
+}
+  
+.QPQuestions .Question .audio-container .volume-slider 
+{
+    width: 200px;
+}
+  
+.QPQuestions .Question  .audio-container .buttons .play-btn .fa-pause 
+{
+    display: none;
+}
+  
+.QPQuestions .Question  .audio-container .buttons .play-btn.playing .fa-pause 
+{
+    display: inline-block;
+}
+  
+.QPQuestions .Question  .audio-container .buttons .play-btn.play-btn.playing .fa-play 
+{
+    display: none;
+}
+  
+.QPQuestions .Question .audio-container .buttons .mute-btn .fa-volume-mute 
+{
+    display: none;
+}
+  
+.QPQuestions .Question .audio-container .buttons .mute-btn.muted .fa-volume-mute 
+{
+    display: inline-block;
+}
+  
+.QPQuestions .Question .audio-container .buttons .mute-btn.muted .fa-volume-up 
+{
+    display: none;
+}
+
+.Question select
+{
+    margin: 80px 10px 10px;
+    width: 30%;
+    padding: 16px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #f1f1f1;
+    font-size: medium;
+}
+.Question .buttons1
+{
+    padding: 100px;
+    font-size: 20px;
+    text-align: right;
+    font-weight: 600;
+    color: #757373;
+    text-decoration: none;
+}
+
+
+.QuizEnd
+{
+    background: linear-gradient(180deg, #ACEDBE 0%, rgba(230, 255, 237, 0) 100%);
+    margin-left: -10px;
+    margin-right: -7px;
+    font-family: Montserrat;
+}
+.QuizEnd .QuizAnswers
+{
+    padding: 140px;
+    text-align: center;
+    margin: 0 auto;
+}
+.QuizEnd .QuizAnswers li
+{
+    list-style-position: inside;
+    font-family: Sanchez;
+    font-weight: 500;
+    font-size: 24px;
+}
+.QuizEnd .QuizAnswers .buttons
+{
+    padding: 10px;
+}

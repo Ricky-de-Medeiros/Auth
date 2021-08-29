@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+
+            document.onkeydown = function (e) {
+                if (event.keyCode == 123) {
+                    return false;
+                }
+                if (e.ctrlKey && e.shiftKey && (e.keyCode == 'I'.charCodeAt(0) || e.keyCode == 'i'.charCodeAt(0))) {
+                    return false;
+                }
+                if (e.ctrlKey && e.shiftKey && (e.keyCode == 'C'.charCodeAt(0) || e.keyCode == 'c'.charCodeAt(0))) {
+                    return false;
+                }
+                if (e.ctrlKey && e.shiftKey && (e.keyCode == 'J'.charCodeAt(0) || e.keyCode == 'j'.charCodeAt(0))) {
+                    return false;
+                }
+                if (e.ctrlKey && (e.keyCode == 'U'.charCodeAt(0) || e.keyCode == 'u'.charCodeAt(0))) {
+                    return false;
+                }
+                if (e.ctrlKey && (e.keyCode == 'S'.charCodeAt(0) || e.keyCode == 's'.charCodeAt(0))) {
+                    return false;
+                }
+            }
+        </script>
+        <link rel = "stylesheet" href ="style.css">
+        <title>Quiz Options</title>
+    </head>
+    <body>
+        <body oncontextmenu="return false;">
+        <header>
+            <a href="index.html" class="logo">Bird Project</a>
+            <ul class= "navigation">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="quizstart.html">Quiz</a></li>
+                <li><a href="#">Glossary</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Sign Up</a></li>
+                <li><a href="#"></a><button type="button" class="button1">Log In</button></a></li>
+            </ul>
+        </header>
+        <div class="QPage1">
+            <h2>Quiz > Options</h2>
+            <ul class="Options">
+                <li><label for="Difficulty">Difficulty</label>
+                    <select name="Difficulty" id="Difficulty">
+                      <option value="Basic">Basic</option>
+                      <option value="Advanced">Advanced</option>
+                    </select></li>
+                <li><label for="Order">Select Order</label>
+                        <select name="Order" id="Order">
+                            <option value="null">null</option>
+                        </select></li>
+                <li><label for="Status">Select Status</label>
+                            <select name="Status" id="Status">
+                            <option value="null">null</option>
+                            </select></li>
+                 <li><label for="Habitat">Select Habitat</label>
+                                <select name="Habitat" id="Habitat">
+                                  <option value="null">null</option>
+                                </select></li>
+            </ul>
+        
+            <div class="buttons">
+                <a href="#"><button type="button" class="buttonsopt" style="margin:10px;">Save</button></a>
+                <a href="#"><button type="button" class="buttonsopt" style="margin:10px;">Reset</button></a>
+                <a href="Quiz.html"><button type="button" class="buttonsopt" style="margin:5px;">Start</button></a>
+            </div> 
+        </div>       
+    </body>
+</html>
