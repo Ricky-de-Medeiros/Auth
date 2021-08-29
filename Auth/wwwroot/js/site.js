@@ -10,7 +10,8 @@ var audioTrack = WaveSurfer.create({
     barWidth: 2,
 });
 
-audioTrack.load('birdcall.wav');
+/*TODO Find out how to do this reference to the .wav file*/
+audioTrack.load("bircall.wav");
 
 const playBtn = document.querySelector(".play-btn");
 const stopBtn = document.querySelector(".stop-btn");

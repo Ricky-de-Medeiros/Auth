@@ -129,19 +129,19 @@ namespace Auth.Controllers
 
 
         // GET: HomeController
-        //[HttpGet("birdquiz")]
-        ////public ActionResult Index()
-        //{
-        //    var birdsMongoCollection = _database.GetCollection<Bird>("nzbirdspecies");
-        //    //convert to Linq Queryable
-        //    var birdsQueryable = birdsMongoCollection.AsQueryable();
+        [HttpGet("birdquiz")]
+        public ActionResult GetData()
+        {
+            var birdsMongoCollection = _database.GetCollection<Bird>("nzbirdspecies");
+            //convert to Linq Queryable
+            var birdsQueryable = birdsMongoCollection.AsQueryable();
 
-        //    //convert to IList
-        //    var birdsList = birdsQueryable.ToList();
+            //convert to IList
+            var birdsList = birdsQueryable.ToList();
 
-        //    //OK converts to JSON 
-        //    return Ok(birdsList);
-        //}
+            //OK converts to JSON 
+            return Ok(birdsList);
+        }
 
 
         [HttpGet("habitats")]
