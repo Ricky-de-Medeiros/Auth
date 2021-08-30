@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Authentication.Cookies;
+﻿using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.Google;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -8,6 +8,7 @@ using Microsoft.Extensions.Hosting;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace Auth
 {
@@ -84,8 +85,8 @@ namespace Auth
                         }
                     };
                 });
-                
-                //.AddGoogle(options =>
+
+                            //.AddGoogle(options =>
                 //{
                 //    options.ClientId = "32168202201-bqkuh50d2gme26hv1soucjfejovfae9p.apps.googleusercontent.com";
                 //    options.ClientSecret = "AMqQ_rbJguWwQRTHTIpdkSOd";
