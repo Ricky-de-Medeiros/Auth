@@ -1,10 +1,17 @@
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="~/css/style.css">
     <title>Quiz</title>
+    @*<script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>*@
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 </head>
 
 <body>
+
+    @*//CAN REMOVE BELOW CODE, AS IT'S ALREADY IN THE _Layout.cshtml FILE*@
+
     <!--<header>-->
     @*<a href="index.html" class="logo">Bird Project</a>*@
     <!--<a class="logo" asp-area="" asp-controller="Home" asp-action="Index">
@@ -50,8 +57,8 @@
     <div class="QPQuestions">
         <div class="Question">
             <h2>Quiz</h2>
-            <h3>Listen to the audio and determine the species. </h3>
-            <h2><label for="Question_1">Question 1 </label></h2>
+            <h4>Listen to the audio and determine the species. </h4>
+            <h3><label for="Question_1">Question 1 </label></h3>
 
             <div class="audio-container">
                 <div class="track-name">Bird call</div>
@@ -83,15 +90,21 @@
             </div>
 
             <audio controls>
-                <source src="./js/birdcall.wav" type="audio/wav">
+                <source src="~/resources/birdcall.wav" type="audio/wav">
                 Your browser does not support the audio element.
             </audio><br>
 
 
             <select name="Question_1" id="12345">
-                <option value="Morepork">Morepork</option>
-                <option value="https://localhost:44358/birdquiz">https://localhost:44358/birdquiz</option>
+                @*<option value="Morepork">Morepork</option>
+                    <option>
+
+                    </option>*@
+
+
             </select> <br>
+
+
             <br><a href="QuizEnd.html"><button type="button" class="buttonsopt" style="margin:10px;">Submit</button></a>
             <div class="buttons1">
                 <a href="#" style="text-decoration: none;">Next ></button></a>
@@ -102,5 +115,6 @@
 
     </div>
     <script src="https://unpkg.com/wavesurfer.js"></script>
-    <script src="./js/site.js"></script>
+    <script src="~/js/site.js"></script>
+    <script src="~/js/QuizDataFetch.js"></script>
 </body>

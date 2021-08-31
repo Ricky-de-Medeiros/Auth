@@ -40,7 +40,7 @@ namespace Auth.Controllers
         {
             return View();
         }
-
+               
         public IActionResult QuizStart()
         {
             return View();

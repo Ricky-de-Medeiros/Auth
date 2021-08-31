@@ -7,7 +7,7 @@ var audioTrack = WaveSurfer.create({
     container: ".audio",
     waveColor: "white",
     progressColor: "green",
-    barWidth: 2,
+    barWidth: 1,
 });
 
 /*TODO Find out how to do this reference to the .wav file*/

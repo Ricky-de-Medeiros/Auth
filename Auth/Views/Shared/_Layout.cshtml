@@ -8,11 +8,13 @@
     <!--<link rel="stylesheet" href="./css/style.css" />
 </head>-->
 <head>
+    
+
     @*<meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />*@
     <title>@ViewData["Title"]NZ Bird Call Training Website</title>
     @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />*@
-    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="~/css/style.css" />
     <script>
         document.onkeydown = function (e) {
             if (event.keyCode == 123) {
@@ -35,15 +37,21 @@
             }
         }
     </script>
-    <link rel="stylesheet" href="./css/style.css">
-    <title>Bird Project</title>
+        <title>Bird Project</title>
 </head>
 
 <body oncontextmenu="return false;">
     <header>
         <a href="#" class="logo">Bird Project</a>
         <ul class="navigation">
-            <li><a href="#">Home</a></li>
+            <li>
+                @*<a href="#">Home</a>*@
+                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">
+                        Home
+                </a>
+            </li>
+
+
             <li><a href="quizstart.html">Quiz</a></li>
             <li><a href="#">Glossary</a></li>
             <li><a href="#">About</a></li>

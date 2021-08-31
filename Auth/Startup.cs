@@ -9,6 +9,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using System.Web.Optimization;
 
 namespace Auth
 {
@@ -19,6 +20,7 @@ namespace Auth
             Configuration = configuration;
         }
 
+       
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
