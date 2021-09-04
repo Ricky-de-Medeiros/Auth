@@ -1,0 +1,83 @@
+﻿@{
+    ViewData["Title"] = "Admin Page";
+}
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="~/css/style.css">
+
+    <title>Bird Project</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<style>
+    table.tb {
+        border-collapse: collapse;
+        width: 300px;
+        position: relative;
+        top: 50px;
+    }
+
+    .tb th, .tb td {
+        padding: 5px;
+        border: solid 1px #777;
+        position: relative;
+        top: 50px;
+    }
+
+    .tb th {
+        background-color: lightblue;
+        position: relative;
+        top: 50px;
+    }
+</style>
+
+<body>
+    <div class="QPQuestions">
+        <div class="Question">
+
+            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Quiz">
+                <button type="button" class="button2">
+                    Add
+                </button>
+            </a>
+            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Quiz">
+                <button type="button" class="button2">
+                    Edit
+                </button>
+            </a>
+            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Quiz">
+                <button type="button" class="button2">
+                    Delete
+                </button>
+            </a>
+
+            <p>
+                <form action="/action_page.php">
+                    <label for="bname">Bird Name:</label>
+                    <input type="text" id="bname" name="bname"><br><br>
+                    <label for="border">Bird Order:</label>
+                    <input type="text" id="border" name="border"><br><br>
+                    <label for="bstatus">Bird Status:</label>
+                    <input type="text" id="bstatus" name="bstatus"><br><br>
+                    <label for="border">Bird Habitat:</label>
+                    <input type="text" id="bhabitat" name="bhabitat"><br><br>
+                    <input type="submit" value="Save">
+                </form>
+
+
+                Click the "Submit" button and the form-data will be sent to a page on the
+                server called "action_page.php".
+
+
+                <table id="tableAdminBirdName">
+                    <tr>
+                        <th>Bird</th>                        
+                    </tr>
+                    
+                </table>
+            </p>
+            
+        </div>
+    </div>
+    <script src="~/js/AdminEdit.js"></script>
+</body>

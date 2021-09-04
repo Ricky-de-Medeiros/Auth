@@ -1,9 +1,12 @@
 ﻿using Auth.Models;
+using Auth.Services;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using MongoDB.Bson;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
@@ -23,7 +26,7 @@ namespace Auth.Controllers
         //    _logger = logger;
 
         //}
-
+                
         private IMongoDatabase _database;
         //Constructor
         public HomeController(ILogger<HomeController> logger)
@@ -34,19 +37,27 @@ namespace Auth.Controllers
             var settings = MongoClientSettings.FromConnectionString("mongodb://nzbirds:nzbirds@cluster0-shard-00-00.amr9m.mongodb.net:27017,cluster0-shard-00-01.amr9m.mongodb.net:27017,cluster0-shard-00-02.amr9m.mongodb.net:27017/nzbirds1?ssl=true&replicaSet=atlas-10rqz7-shard-0&authSource=admin&retryWrites=true&w=majority");
             var client = new MongoClient(settings);
             _database = client.GetDatabase("nzbirds1");
+                        
         }
 
+            
         public IActionResult Index()
         {
             return View();
         }
-               
+
+        
         public IActionResult QuizStart()
         {
             return View();
         }
 
         public IActionResult QuizOptions()
+        {
+            return View();
+        }
+
+        public IActionResult Admin()
         {
             return View();
         }
@@ -112,6 +123,41 @@ namespace Auth.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+
+        //MARIYA'S CODE FOR ADMIN PAGE
+        [HttpPost]
+        public ActionResult Save(Bird bird)
+        {
+            var birdService = new BirdsService();
+            //gets MongoCollection instance representing a collection on this database
+            var collection = _database.GetCollection<BsonDocument>("nzbirdspecies");
+            //add filter to check duplicate records on basis of bird name
+            var filter = Builders<BsonDocument>.Filter.Eq("_id", bird._id);
+            //will return count if same document exists else will return 0
+            BsonDocument dbBird = collection.Find(filter).FirstOrDefault();
+            //if it is 0, then we are going to insert document
+            if (dbBird == null)
+            {         
+                // if null, then create a new bird item
+                dbBird = birdService.MapBirdToDbBird(bird);
+                //insert into dataabse
+                collection.InsertOne(dbBird);
+                bird._id = dbBird.GetValue("_id").AsString;
+            }
+            else
+            {
+                //update existing bird (document)
+                var update = Builders<BsonDocument>.Update 
+                    .Set("Name", bird.Name)
+                    .Set("Order", bird.Order)
+                    .Set("Status", bird.Status)
+                    .Set("Habitat", bird.Habitat)
+                    .Set("Number", bird.Number);
+                collection.UpdateOne(filter, update);
+            }            
+            return Ok(bird);
         }
 
 
@@ -225,5 +271,9 @@ namespace Auth.Controllers
 
             return statusList;
         }
+
+        
+
+
     }
 }
