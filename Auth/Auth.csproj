@@ -6,18 +6,26 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="Views\Home\Quiz.cshtml" />
     <Content Remove="Views\Home\QuizEnd.cshtml" />
     <Content Remove="Views\Home\QuizOptions.cshtml" />
     <Content Remove="Views\Home\QuizStart.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="Views\Home\Quiz.cshtml" />
+    <None Remove="Controllers\birdcall.wav" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Controllers\birdcall.wav">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="Views\Home\QuizEnd.cshtml" />
     <None Include="Views\Home\QuizOptions.cshtml" />
     <None Include="Views\Home\QuizStart.cshtml" />
-    <None Include="wwwroot\css\style.css" />
   </ItemGroup>
 
   <ItemGroup>

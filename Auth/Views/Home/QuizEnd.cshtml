@@ -1,28 +1,5 @@
     <head>
-        <script>
-
-            document.onkeydown = function (e) {
-                if (event.keyCode == 123) {
-                    return false;
-                }
-                if (e.ctrlKey && e.shiftKey && (e.keyCode == 'I'.charCodeAt(0) || e.keyCode == 'i'.charCodeAt(0))) {
-                    return false;
-                }
-                if (e.ctrlKey && e.shiftKey && (e.keyCode == 'C'.charCodeAt(0) || e.keyCode == 'c'.charCodeAt(0))) {
-                    return false;
-                }
-                if (e.ctrlKey && e.shiftKey && (e.keyCode == 'J'.charCodeAt(0) || e.keyCode == 'j'.charCodeAt(0))) {
-                    return false;
-                }
-                if (e.ctrlKey && (e.keyCode == 'U'.charCodeAt(0) || e.keyCode == 'u'.charCodeAt(0))) {
-                    return false;
-                }
-                if (e.ctrlKey && (e.keyCode == 'S'.charCodeAt(0) || e.keyCode == 's'.charCodeAt(0))) {
-                    return false;
-                }
-            }
-        </script>
-        <link rel = "stylesheet" href ="style.css">
+        <link rel = "stylesheet" href ="./css/style.css">
         <title>Quiz Options</title>
     </head>
 
@@ -64,13 +41,14 @@
             
                 <h3> The correct answers for the quiz are:</h3>
                 
-             <ol type="1">
-                <li> New Zealand Pipit </li>
-                <li> Kea</li>
-                <li>Kiwi </li>
-                <li>Silvereye</li>
-                <li>Tui</li>      
-            </ol>
+                <ol type="1">
+                    @*TODO Get answers from database*@ 
+                    @*<li>New Zealand Pipit </li>
+                    <li>Kea</li>
+                    <li>Kiwi </li>
+                    <li>Silvereye</li>
+                    <li>Tui</li>*@      
+                </ol>
             
                 <div class="buttons">
                     <a href="Quiz.html"><button type="button" class="buttonsopt" style="margin:10px;">Start again</button></a>

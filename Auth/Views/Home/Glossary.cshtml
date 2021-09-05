@@ -1,0 +1,49 @@
+﻿@page
+@model Auth.Views.GlossaryModel
+@{
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/style.css">
+    <link rel="stylesheet" href="~/css/style2.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+    <title>Quiz</title>
+
+</head>
+    <body oncontextmenu="return false;">
+        <div id="header"></div>
+        <section class="background-1">
+            <div class="row">
+                <h1>Bird Project's A-to-Z Glossary of NZ Bird Terms</h1>
+            </div>
+            <div class="row">
+                <h3>Learn to express yourself like an ornithilogist with this expanded Glossary of terms</h3>
+            </div>
+            <div class="row padding-div">
+                <div class="table-div">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Number</th>
+                                <th>Name</th>
+                                <th>Order</th>
+                                <th>Status</th>
+                                <th>Habitat</th>
+                            </tr>
+                        </thead>
+                        <tbody id="content">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+        <script src="~/js/Glossary.js"></script>
+    </body>
+</html>

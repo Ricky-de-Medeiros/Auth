@@ -19,5 +19,7 @@ namespace Auth.Models
         public string Order { get; set; }
         public string Status { get; set; }
         public string Habitat { get; set; }
+
+        public byte[] Sound { get; set; }
     }
 }

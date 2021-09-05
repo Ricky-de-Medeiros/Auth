@@ -12,8 +12,11 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.IO;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using System.Net.Http;
+using System.Net;
 
 namespace Auth.Controllers
 {
@@ -46,7 +49,17 @@ namespace Auth.Controllers
             return View();
         }
 
-        
+        public IActionResult About()
+        {
+            return View();
+        }
+
+        public IActionResult Glossary()
+        {
+            return View();
+        }
+
+
         public IActionResult QuizStart()
         {
             return View();
@@ -156,8 +169,9 @@ namespace Auth.Controllers
                     .Set("Habitat", bird.Habitat)
                     .Set("Number", bird.Number);
                 collection.UpdateOne(filter, update);
-            }            
+            }
             return Ok(bird);
+            //return View();
         }
 
 
@@ -253,7 +267,51 @@ namespace Auth.Controllers
                 IsCorrect = correctStatus == status
             }).ToList();
 
+            //Return audio file instead of newQuestion
             return Ok(newQuestion);
+        }
+
+
+        [HttpGet("getSound")]
+        public ActionResult GetBirdSound(string birdId)
+        {
+            // TODO: find bird sound in DB using birdId
+            // I.e.
+            //var collection = _database.GetCollection<BsonDocument>("nzbirdspecies");
+            ////add filter to check duplicate records on basis of bird name
+            //var filter = Builders<BsonDocument>.Filter.Eq("_id", bird._id);
+            ////will return count if same document exists else will return 0
+            //BsonDocument dbBird = collection.Find(filter).FirstOrDefault();
+
+
+            // Get sound from file.
+            // Eventually we will get the wav file from the database so this will be no longer needed
+            var fileBytes = System.IO.File.ReadAllBytes("Controllers/birdcall.wav");
+
+            return File(fileBytes, "text/plain", Path.GetFileName("birdsound"));
+         }
+
+        [HttpGet("getQuestion")]
+        public ActionResult GetQuestion()
+        {
+            // TODO: Get random whole bird from database
+            var collection = _database.GetCollection<Bird>("nzbirdspecies");
+
+            //convert to Linq Queryable
+            var birdsQueryable = collection.AsQueryable();
+            var result = birdsQueryable.ToArray();
+
+            // Get random bird using linq
+            var rand = new Random();
+            var randomBird = result.ElementAt(rand.Next(result.Count()));
+            
+
+            // Get sound from file.
+            // Eventually we will get the wav file from the database so this will be no longer needed
+            var fileBytes = System.IO.File.ReadAllBytes("Controllers/birdcall.wav");
+            randomBird.Sound = fileBytes;
+
+            return Ok(randomBird);
         }
 
         private IEnumerable<string> getStatusesList()

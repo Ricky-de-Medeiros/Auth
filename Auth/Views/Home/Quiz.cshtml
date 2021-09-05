@@ -1,64 +1,35 @@
+﻿@page
+@model Auth.Views.Home.QuizModel
+@{
+}
+
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="~/css/style.css">
     <title>Quiz</title>
-    @*<script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
-        <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>*@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 </head>
 
+@*Below code increments question number by 1 when "next" button is clicked*@
+<script>
+    function add() {
+        var qNumber = document.getElementById("changeQNumber").innerText;
+        var change = parseInt(qNumber, 10) + 1;
+        document.getElementById("changeQNumber").innerHTML = change.toString();
+    }
+
+
+</script>
+
 <body>
-
-    @*//CAN REMOVE BELOW CODE, AS IT'S ALREADY IN THE _Layout.cshtml FILE*@
-
-    <!--<header>-->
-    @*<a href="index.html" class="logo">Bird Project</a>*@
-    <!--<a class="logo" asp-area="" asp-controller="Home" asp-action="Index">
-            Bird Project
-    </a>
-
-
-    <ul class="navigation">-->
-    @*<li><a href="index.html">Home</a></li>*@
-    <!--<li>
-        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">
-            Home
-        </a>
-    </li>-->
-    @*<li><a href="quizstart.html">Quiz</a></li>*@
-    <!--<li>
-        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="QuizStart">
-            Quiz
-        </a>
-    </li>
-
-
-    <li><a href="#">Glossary</a></li>
-
-
-    <li><a href="#">About</a></li>
-
-
-    <li><a href="#">Sign Up</a></li>-->
-    @*<li><a href="#"></a><button type="button" class="button1">Log In</button></a></li>*@
-    <!--<li>
-                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Login">
-                    <button type="button" class="button1">
-                        Log In
-                    </button>
-                </a>
-            </li>
-        </ul>
-    </header>-->
-
-
-
     <div class="QPQuestions">
         <div class="Question">
             <h2>Quiz</h2>
+            <h3>Question <label id="changeQNumber" for="Question_1">1</label></h3>
+            <h4><label id="randomBird"></label></h4>
             <h4>Listen to the audio and determine the species. </h4>
-            <h3><label for="Question_1">Question 1 </label></h3>
+
 
             <div class="audio-container">
                 <div class="track-name">Bird call</div>
@@ -90,26 +61,21 @@
             </div>
 
             <audio controls>
-                <source src="~/resources/birdcall.wav" type="audio/wav">
+                @*TODO: pass an ID at the end of the URL below. *@
+                @*<source id="idOfMusicElement" src="https://localhost:44358/getSound" type="audio/wav">*@
+                <source id="idOfMusicElement" type="audio/wav">
                 Your browser does not support the audio element.
             </audio><br>
 
+            @*Code for select list box*@
+            <select name="answeroptions" id="12345">
+            </select>
 
-            <select name="Question_1" id="12345">
-                @*<option value="Morepork">Morepork</option>
-                    <option>
-
-                    </option>*@
-
-
-            </select> <br>
-
-
-            <br><a href="QuizEnd.html"><button type="button" class="buttonsopt" style="margin:10px;">Submit</button></a>
             <div class="buttons1">
-                <a href="#" style="text-decoration: none;">Next ></button></a>
-                <a href="#" style="text-decoration: none;">Skip >></button></a>
+                <button onclick="add()"><a style="text-decoration: none;">Next ></a></button>
             </div>
+            <br><a href="QuizEnd.html"><button type="button" class="buttonsopt" style="margin:10px;">Submit</button></a>
+
 
         </div>
 
@@ -118,3 +84,4 @@
     <script src="~/js/site.js"></script>
     <script src="~/js/QuizDataFetch.js"></script>
 </body>
+

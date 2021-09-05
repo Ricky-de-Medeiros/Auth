@@ -16,6 +16,10 @@ function myFunctionSet(x) {
     inputStatus.val(inputStatus.val() + bird.status);
     var inputHabitat = $("#bhabitat");
     inputHabitat.val(inputHabitat.val() + bird.habitat);
+    var inputID = $("#bID");
+    inputID.val(inputID.val() + bird._id);
+    var inputNum = $("#bnum");
+    inputNum.val(inputNum.val() + bird.number);
 }
 
 //clears all the textbox data, so when person clicks on another list item
@@ -29,6 +33,10 @@ function myFunctionClear(x) {
     inputStatus.val(null);
     var inputHabitat = $("#bhabitat");
     inputHabitat.val(null);
+    var inputID = $("#bID");
+    inputID.val(null);
+    var inputNum = $("#bnum");
+    inputNum.val(null);
 }
 
 
@@ -48,7 +56,7 @@ $(document).ready(function () {
         // loop through all data (list of bird objects) returned from the server
         $.each(birds, function (i, bird) {
             $(birdTable).append(
-                '<tr onclick="myFunctionClear(this) + myFunctionSet(this)">'
+                '<tr onclick="myFunctionClear(this); myFunctionSet(this);">'
                     + '<td>' + bird.name + '</td>'
                     //+ '<td>' + bird.order + '</td>'
                     //+ '<td>' + bird.status + '</td>'

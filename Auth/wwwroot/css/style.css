@@ -120,11 +120,9 @@ header .button1
 .body
 {
     background: linear-gradient(180deg, #FEFFD9 0%, rgba(254, 255, 217, 0) 100%);
-    /*width: 100%;*/
     margin: -8px;
     display: flex;
     justify-content: center;
-    /*align-items: center;*/
 }
 .body .contentSignUp
 {
@@ -189,9 +187,9 @@ header .button1
     font-style: normal;
     
 }
-.QPage1 li
-{
-    padding: 20px;
+.QPage1 form .Options
+{   
+    margin-bottom: 10px;
     list-style: none;
     text-align: center;
     font-family: Sanchez;
@@ -208,19 +206,12 @@ header .button1
     background-color: #f1f1f1;
     font-size: medium;
 }
-/*.QPage1 .buttons
-{
-    padding: 100px;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-}*/
 
 input[type='reset'],
 input[type='submit'] {
     display: block;
     margin: 0 auto;
+
     margin-bottom: 10px;
     width: 193px;
     height: 53px;
@@ -236,7 +227,6 @@ input[type='submit'] {
     cursor: pointer;
 }
 
-
 .buttonsopt
 {
     width: 193px;
@@ -244,7 +234,6 @@ input[type='submit'] {
     background: linear-gradient(180deg, rgba(0, 224, 170, 0.863258) 0%, rgba(183, 255, 206, 0.854625) 100%);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 15px;
-    /*transform: rotate(-0.2deg);*/
     font-style: normal;
     font-size: 18px;
     font-weight: 500;

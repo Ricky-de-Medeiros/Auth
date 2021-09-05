@@ -1,11 +1,14 @@
-﻿$(document).ready(function () {
+﻿
+   
+$(document).ready(function ()
+{
 
-    this.state = {
-            birdData: [],
-            habitatsData: [],
-            questionData: [],
-            orderData: []
-    };
+    //this.state = {
+    //        birdData: [],
+    //        habitatsData: [],
+    //        questionData: [],
+    //        orderData: [],
+    //};
 
     $.get("https://localhost:44358/birdquiz", function (birds, status) {
         // get select (dropdown box)
@@ -18,13 +21,23 @@
                 text: bird.name
             }));
         });
+    });
 
-        // for each bird - make a dropdown option (html element) within/add to the select box element?
+    $.get("https://localhost:44358/getQuestion", function (bird, status) {
+
+        // Set the source of the music element DYNAMICALLY so that it gets the sound based on the 'bird._id'
+        // I.e.  
+        $("#idOfMusicElement").attr("src", "https://localhost:44358/getSound/" + bird._id);
         
     });
 
     //DO NOT DELETE BELOW CODE: Example of how to link to a button click function
     //$("#hellobtn").click(function () {        
     //});
+
+   
+
 });
 
+
+  
