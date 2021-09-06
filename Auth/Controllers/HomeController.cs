@@ -320,14 +320,7 @@ namespace Auth.Controllers
             return Ok(randomBird);
         }
 
-        [HttpGet("checkAnswer")]
-        public ActionResult checkAnswer()
-        {
-            //
-
-            return Ok(randomBird);
-        }
-
+        
         private IEnumerable<string> getStatusesList()
         {
             var birdsMongoCollection = _database.GetCollection<Bird>("nzbirdspecies");
