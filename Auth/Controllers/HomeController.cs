@@ -138,6 +138,7 @@ namespace Auth.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
+        #region MariyaSection
 
         //MARIYA'S CODE FOR ADMIN PAGE
         [HttpPost]
@@ -193,6 +194,7 @@ namespace Auth.Controllers
         public ActionResult GetData()
         {
             var birdsMongoCollection = _database.GetCollection<Bird>("nzbirdspecies");
+
             //convert to Linq Queryable
             var birdsQueryable = birdsMongoCollection.AsQueryable();
 
@@ -337,7 +339,7 @@ namespace Auth.Controllers
             return statusList;
         }
 
-        
+        #endregion MariyaSection
 
 
     }
