@@ -11,16 +11,8 @@
 
 </head>
 
-@*Below code increments question number by 1 when "next" button is clicked*@
-<script>
-    function add() {
-        var qNumber = document.getElementById("changeQNumber").innerText;
-        var change = parseInt(qNumber, 10) + 1;
-        document.getElementById("changeQNumber").innerHTML = change.toString();
-    }
 
 
-</script>
 
 <body>
     <div class="QPQuestions">
@@ -31,7 +23,7 @@
             <h4>Listen to the audio and determine the species. </h4>
 
 
-            <div class="audio-container">
+            @*<div class="audio-container">
                 <div class="track-name">Bird call</div>
 
                 <div class="audio"></div>
@@ -58,21 +50,21 @@
                            value="0.5"
                            class="volume-slider" />
                 </div>
-            </div>
+            </div>*@
 
-            <audio controls>
+            <audio id="idOfMusicElement" controls>
                 @*TODO: pass an ID at the end of the URL below. *@
-                @*<source id="idOfMusicElement" src="https://localhost:44358/getSound" type="audio/wav">*@
-                <source id="idOfMusicElement" type="audio/wav">
                 Your browser does not support the audio element.
             </audio><br>
+
+            <p id="answer"></p>
 
             @*Code for select list box*@
             <select name="answeroptions" id="12345">
             </select>
 
             <div class="buttons1">
-                <button onclick="add()"><a style="text-decoration: none;">Next ></a></button>
+                <button onclick="getNextQuestion()"><a style="text-decoration: none;">Next ></a></button>
             </div>
             <br><a href="QuizEnd.html"><button type="button" class="buttonsopt" style="margin:10px;">Submit</button></a>
 

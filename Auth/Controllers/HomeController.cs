@@ -272,21 +272,27 @@ namespace Auth.Controllers
         }
 
 
-        [HttpGet("getSound")]
+        [HttpGet("getSound/{birdId}")]
         public ActionResult GetBirdSound(string birdId)
         {
             // TODO: find bird sound in DB using birdId
             // I.e.
-            //var collection = _database.GetCollection<BsonDocument>("nzbirdspecies");
+            var collection = _database.GetCollection<Bird>("nzbirdspecies");
             ////add filter to check duplicate records on basis of bird name
-            //var filter = Builders<BsonDocument>.Filter.Eq("_id", bird._id);
+            //var filter = Builders<BsonDocument>.Filter.Eq("_id", birdId);
             ////will return count if same document exists else will return 0
             //BsonDocument dbBird = collection.Find(filter).FirstOrDefault();
 
+            var dbBird = collection
+                .Find(Builders<Bird>.Filter.Eq("_id", birdId))
+                .FirstOrDefault();
 
             // Get sound from file.
             // Eventually we will get the wav file from the database so this will be no longer needed
             var fileBytes = System.IO.File.ReadAllBytes("Controllers/birdcall.wav");
+
+            // Eventually we should have the sound stored in the db
+            //var fileBytes = dbBird.GetValue("sound").AsByteArray;
 
             return File(fileBytes, "text/plain", Path.GetFileName("birdsound"));
          }
@@ -308,8 +314,16 @@ namespace Auth.Controllers
 
             // Get sound from file.
             // Eventually we will get the wav file from the database so this will be no longer needed
-            var fileBytes = System.IO.File.ReadAllBytes("Controllers/birdcall.wav");
-            randomBird.Sound = fileBytes;
+            //var fileBytes = System.IO.File.ReadAllBytes("Controllers/birdcall.wav");
+            //randomBird.Sound = fileBytes;
+
+            return Ok(randomBird);
+        }
+
+        [HttpGet("checkAnswer")]
+        public ActionResult checkAnswer()
+        {
+            //
 
             return Ok(randomBird);
         }
