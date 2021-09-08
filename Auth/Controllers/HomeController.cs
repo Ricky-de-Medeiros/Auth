@@ -1,4 +1,4 @@
-﻿using Auth.Models;
+using Auth.Models;
 using Auth.Services;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -70,20 +70,19 @@ namespace Auth.Controllers
             return View();
         }
 
-        public IActionResult Admin()
-        {
-            return View();
-        }
+        //public IActionResult Admin()
+        //{
+        //    return View();
+        //}
 
         public IActionResult Quiz()
         {
             return View();
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
+
+
+        #region AUTHENTICATION AND AUTHORIZATION
 
         [HttpGet("denied")]
         public IActionResult Denied()
@@ -93,6 +92,13 @@ namespace Auth.Controllers
 
         [Authorize(/*Roles = "Admin"*/)]
         public async Task<IActionResult> Secured()
+        {
+            var idToken = await HttpContext.GetTokenAsync("id_token");
+            return View();
+        }
+
+        [Authorize(/*Roles = "Admin"*/)]
+        public async Task<IActionResult> Admin()
         {
             var idToken = await HttpContext.GetTokenAsync("id_token");
             return View();
@@ -137,8 +143,13 @@ namespace Auth.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+        #endregion AUTHENTICATION AND AUTHORIZATION
+        
 
         #region MariyaSection
+
+        
+
 
         //MARIYA'S CODE FOR ADMIN PAGE
         [HttpPost]

@@ -59,6 +59,12 @@
                     </button>
                 </a>
             </li>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Logout">Logout</a>
+                </li>
+            }
 
         </ul>
     </header>
