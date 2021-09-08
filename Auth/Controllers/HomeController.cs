@@ -1,4 +1,4 @@
-﻿using Auth.Models;
+using Auth.Models;
 using Auth.Services;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -143,8 +143,13 @@ namespace Auth.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-
         #endregion AUTHENTICATION AND AUTHORIZATION
+        
+
+        #region MariyaSection
+
+        
+
 
         //MARIYA'S CODE FOR ADMIN PAGE
         [HttpPost]
@@ -200,6 +205,7 @@ namespace Auth.Controllers
         public ActionResult GetData()
         {
             var birdsMongoCollection = _database.GetCollection<Bird>("nzbirdspecies");
+
             //convert to Linq Queryable
             var birdsQueryable = birdsMongoCollection.AsQueryable();
 
@@ -344,7 +350,7 @@ namespace Auth.Controllers
             return statusList;
         }
 
-        
+        #endregion MariyaSection
 
 
     }

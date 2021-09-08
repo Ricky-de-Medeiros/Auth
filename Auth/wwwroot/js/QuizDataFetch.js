@@ -1,4 +1,12 @@
-﻿
+﻿   
+function selectedOption() {
+    $("select.answers").change(function () {
+        var selectedCountry = $(this).children("option:selected").val();
+        alert("You have selected the country - " + selectedCountry);
+    });
+}
+
+
 function changeQuestionNumber() {
     var qNumber = document.getElementById("changeQNumber").innerText;
     var change = parseInt(qNumber, 10) + 1;
@@ -40,6 +48,7 @@ $(document).ready(function ()
 {
     dropDownOptions();
     getNextQuestion();
+    selectedOption();
 });
 
 

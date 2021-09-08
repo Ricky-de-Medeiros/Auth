@@ -1,11 +1,12 @@
     <head>
-        <link rel = "stylesheet" href ="./css/style.css">
-        <title>Quiz Options</title>
-    </head>
-        <body oncontextmenu="return false;">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Quiz Options</title>
+    
+</head>
+    <body oncontextmenu="return false;">
         <header>
             <a href="index.html" class="logo">Bird Project</a>
-            <ul class= "navigation">
+            <ul class="navigation">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="quizstart.html">Quiz</a></li>
                 <li><a href="#">Glossary</a></li>
@@ -14,32 +15,51 @@
                 <li><a href="#"></a><button type="button" class="button1">Log In</button></a></li>
             </ul>
         </header>
+
+
         <div class="QPage1">
             <h2>Quiz > Options</h2>
-            <ul class="Options">
-                <li><label for="Difficulty">Difficulty</label>
-                    <select name="Difficulty" id="Difficulty">
-                      <option value="Basic">Basic</option>
-                      <option value="Advanced">Advanced</option>
-                    </select></li>
-                <li><label for="Order">Select Order</label>
+            <form name="quizOptions" action="~/Home/Quiz" onsubmit="return compulsoryField()" method="post">
+                <ul class="Options">
+
+                    <li>
+                        Enter number of questions you wish to answer*: <input type="text" id="compulsoryNumber" name="number">
+                    </li>
+                    <li>
+                        <label for="Difficulty">Difficulty</label>
+                        <select name="Difficulty" id="Difficulty">
+                            <option value="Basic">Basic</option>
+                            <option value="Advanced">Advanced</option>
+                        </select>
+                    </li>
+                    <li>
+                        <label for="Order">Select Order</label>
                         <select name="Order" id="Order">
                             <option value="null">null</option>
-                        </select></li>
-                <li><label for="Status">Select Status</label>
-                            <select name="Status" id="Status">
+                        </select>
+                    </li>
+                    <li>
+                        <label for="Status">Select Status</label>
+                        <select name="Status" id="Status">
                             <option value="null">null</option>
-                            </select></li>
-                 <li><label for="Habitat">Select Habitat</label>
-                                <select name="Habitat" id="Habitat">
-                                  <option value="null">null</option>
-                                </select></li>
-            </ul>
-        
-            <div class="buttons">
-                <a href="#"><button type="button" class="buttonsopt" style="margin:10px;">Save</button></a>
-                <a href="#"><button type="button" class="buttonsopt" style="margin:10px;">Reset</button></a>
-                <a href="Quiz.html"><button type="button" class="buttonsopt" style="margin:5px;">Start</button></a>
-            </div> 
-        </div>       
+                        </select>
+                    </li>
+                    <li>
+                        <label for="Habitat">Select Habitat</label>
+                        <select name="Habitat" id="Habitat">
+                            <option value="null">null</option>
+                        </select>
+                    </li>
+
+                </ul>
+                <h4>*Compulsory field</h4>
+
+                <input type="submit" value="Submit">
+                <input type="reset" value="Reset">
+            </form>
+
+        </div>
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="~/js/QuizOptions.js"></script>
+
     </body>
