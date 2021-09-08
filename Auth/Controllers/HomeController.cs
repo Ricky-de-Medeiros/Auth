@@ -70,20 +70,19 @@ namespace Auth.Controllers
             return View();
         }
 
-        public IActionResult Admin()
-        {
-            return View();
-        }
+        //public IActionResult Admin()
+        //{
+        //    return View();
+        //}
 
         public IActionResult Quiz()
         {
             return View();
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
+
+
+        #region AUTHENTICATION AND AUTHORIZATION
 
         [HttpGet("denied")]
         public IActionResult Denied()
@@ -92,7 +91,7 @@ namespace Auth.Controllers
         }
 
         [Authorize(/*Roles = "Admin"*/)]
-        public async Task<IActionResult> Secured()
+        public async Task<IActionResult> Admin()
         {
             var idToken = await HttpContext.GetTokenAsync("id_token");
             return View();
@@ -138,6 +137,7 @@ namespace Auth.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
+        #endregion AUTHENTICATION AND AUTHORIZATION
 
         //MARIYA'S CODE FOR ADMIN PAGE
         [HttpPost]
