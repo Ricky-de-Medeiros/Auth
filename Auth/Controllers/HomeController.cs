@@ -91,6 +91,13 @@ namespace Auth.Controllers
         }
 
         [Authorize(/*Roles = "Admin"*/)]
+        public async Task<IActionResult> Secured()
+        {
+            var idToken = await HttpContext.GetTokenAsync("id_token");
+            return View();
+        }
+
+        [Authorize(/*Roles = "Admin"*/)]
         public async Task<IActionResult> Admin()
         {
             var idToken = await HttpContext.GetTokenAsync("id_token");
