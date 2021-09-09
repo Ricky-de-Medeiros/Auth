@@ -4,18 +4,6 @@
     
 </head>
     <body oncontextmenu="return false;">
-        <header>
-            <a href="index.html" class="logo">Bird Project</a>
-            <ul class="navigation">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="quizstart.html">Quiz</a></li>
-                <li><a href="#">Glossary</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Sign Up</a></li>
-                <li><a href="#"></a><button type="button" class="button1">Log In</button></a></li>
-            </ul>
-        </header>
-
 
         <div class="QPage1">
             <h2>Quiz > Options</h2>
@@ -23,36 +11,40 @@
                 <ul class="Options">
 
                     <li>
-                        Enter number of questions you wish to answer*: <input type="text" id="compulsoryNumber" name="number">
+                        <b>Enter number of questions you wish to answer*:</b> <input type="text" id="compulsoryNumber" name="number">
                     </li>
                     <li>
-                        <label for="Difficulty">Difficulty</label>
-                        <select name="Difficulty" id="Difficulty">
-                            <option value="Basic">Basic</option>
-                            <option value="Advanced">Advanced</option>
-                        </select>
+                        <p></p>
                     </li>
                     <li>
-                        <label for="Order">Select Order</label>
-                        <select name="Order" id="Order">
-                            <option value="null">null</option>
-                        </select>
+                        <label for="Difficulty"><b>Difficulty:</b></label>
+                        <div id="difficultyButtons"></div>
                     </li>
                     <li>
-                        <label for="Status">Select Status</label>
-                        <select name="Status" id="Status">
-                            <option value="null">null</option>
-                        </select>
+                        <p></p>
                     </li>
                     <li>
-                        <label for="Habitat">Select Habitat</label>
-                        <select name="Habitat" id="Habitat">
-                            <option value="null">null</option>
-                        </select>
+                        <label for="Order"><b>Select Order:</b></label>
+                        <div id="orderButtons"></div>
+                    </li>
+                    <li>
+                        <p></p>
+                    </li>
+                    <li>
+                        <label for="Status"><b>Select Status:</b></label>
+                        <div id="statusButtons"></div>
+                    </li>
+                    <li>
+                        <p></p>
+                    </li>
+                    <li>
+                        <label for="Habitat"><b>Select Habitat:</b></label>
+                        <div id="habitatButtons"></div>
+
                     </li>
 
                 </ul>
-                <h4>*Compulsory field</h4>
+                <h4>*Mandatory field</h4>
 
                 <input type="submit" value="Submit">
                 <input type="reset" value="Reset">
