@@ -23,35 +23,40 @@
 
 
             @*<div class="audio-container">
-                    <div class="track-name">Bird call</div>
+            <div class="track-name">Bird call</div>
 
-                    <div class="audio"></div>
+            <div class="audio"></div>
 
-                    <div class="buttons">
-                        <span class="play-btn btn">
-                            <i class="fas fa-play"></i>
-                            <i class="fas fa-pause"></i>
-                        </span>
+            <div class="buttons">
+                <span class="play-btn btn">
+                    <i class="fas fa-play"></i>
+                    <i class="fas fa-pause"></i>
+                </span>
 
-                        <span class="stop-btn btn">
-                            <i class="fas fa-stop"></i>
-                        </span>
+                <span class="stop-btn btn">
+                    <i class="fas fa-stop"></i>
+                </span>
 
-                        <span class="mute-btn btn">
-                            <i class="fas fa-volume-up"></i>
-                            <i class="fas fa-volume-mute"></i>
-                        </span>
+                <span class="mute-btn btn">
+                    <i class="fas fa-volume-up"></i>
+                    <i class="fas fa-volume-mute"></i>
+                </span>
 
-                        <input type="range"
-                               min="0"
-                               max="1"
-                               step="0.1"
-                               value="0.5"
-                               class="volume-slider" />
-                    </div>
-                </div>*@
+                <input type="range"
+                       min="0"
+                       max="1"
+                       step="0.1"
+                       value="0.5"
+                       class="volume-slider" />
+            </div>
+        </div>*@
 
             <audio id="idOfMusicElement" controls>
+                @*TODO: pass an ID at the end of the URL below. *@
+                Your browser does not support the audio element.
+            </audio><br>
+
+            <audio id="idOfMusicElement2" controls>
                 @*TODO: pass an ID at the end of the URL below. *@
                 Your browser does not support the audio element.
             </audio><br>

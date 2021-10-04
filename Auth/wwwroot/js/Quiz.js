@@ -28,6 +28,23 @@ function dropDownOptions() {
     });
 }
 
+
+function audio() {
+    $.get("https://localhost:44358/testingSoundRecording", function (bird, status) {
+        // Set the source of the music element DYNAMICALLY so that it gets the sound based on the 'bird._id'
+        var audio = document.getElementById("idOfMusicElement2");
+        audio.src = bird.Sound;
+        audio.load();
+
+    });
+
+    //DO NOT DELETE BELOW CODE: Example of how to link to a button click function
+    //$("#hellobtn").click(function () {        
+    //});
+}
+
+
+
 function getNextQuestion() {
     $.get("https://localhost:44358/getQuestion", function (bird, status) {
         // Set the source of the music element DYNAMICALLY so that it gets the sound based on the 'bird._id'
@@ -49,6 +66,7 @@ $(document).ready(function ()
     dropDownOptions();
     getNextQuestion();
     selectedOption();
+    audio();
 });
 
 
