@@ -1,20 +1,11 @@
-﻿   
-function selectedOption() {
-    $("select.answers").change(function () {
-        var selectedCountry = $(this).children("option:selected").val();
-        alert("You have selected the country - " + selectedCountry);
-    });
-}
-
-
-function changeQuestionNumber() {
+﻿function changeQuestionNumber() {
     var qNumber = document.getElementById("changeQNumber").innerText;
     var change = parseInt(qNumber, 10) + 1;
     document.getElementById("changeQNumber").innerHTML = change.toString();
 }
 
 function dropDownOptions() {
-    $.get("https://localhost:44358/birdquiz", function (birds, status) {
+    $.get("https://localhost:44358/birdquiz", function (birds) {
         // get select (dropdown box)
         var selectBox = $("#12345");
 
@@ -28,28 +19,12 @@ function dropDownOptions() {
     });
 }
 
-
-function audio() {
-    $.get("https://localhost:44358/testingSoundRecording", function (bird, status) {
-        // Set the source of the music element DYNAMICALLY so that it gets the sound based on the 'bird._id'
-        var audio = document.getElementById("idOfMusicElement2");
-        audio.src = bird.Sound;
-        audio.load();
-
-    });
-
-    //DO NOT DELETE BELOW CODE: Example of how to link to a button click function
-    //$("#hellobtn").click(function () {        
-    //});
-}
-
-
-
 function getNextQuestion() {
-    $.get("https://localhost:44358/getQuestion", function (bird, status) {
+    $.get("https://localhost:44358/getQuestion", function (bird) {
         // Set the source of the music element DYNAMICALLY so that it gets the sound based on the 'bird._id'
         var audio = document.getElementById("idOfMusicElement");
-        audio.src = "https://localhost:44358/getSound/" + bird._id;
+        
+        audio.src = bird.sound1;
         audio.load();
 
         $("#answer").text(bird.name);
@@ -65,9 +40,8 @@ $(document).ready(function ()
 {
     dropDownOptions();
     getNextQuestion();
-    selectedOption();
-    audio();
+    selectedOption();    
 });
 
 
-  
+ 

@@ -239,6 +239,7 @@ namespace Auth.Controllers
         public ActionResult GetOrder()
         {
             var birdsMongoCollection = _database.GetCollection<Bird>("nzbirdspecies");
+
             //convert to Linq Queryable
             var birdsQueryable = birdsMongoCollection.AsQueryable();
 
@@ -286,31 +287,114 @@ namespace Auth.Controllers
             return Ok(newQuestion);
         }
 
+        #region MariyaSectionTestSoundEndpoints
+        //[HttpGet("getSound/{birdId}")]
+        //public ActionResult GetBirdSound(string birdId)
+        //{
+        //    // TODO: find bird sound in DB using birdId
+        //    // I.e.
+        //    var collection = _database.GetCollection<Bird>("nzbirdspecies");
+        //    ////add filter to check duplicate records on basis of bird name
+        //    //var filter = Builders<BsonDocument>.Filter.Eq("_id", birdId);
+        //    ////will return count if same document exists else will return 0
+        //    //BsonDocument dbBird = collection.Find(filter).FirstOrDefault();
 
-        [HttpGet("getSound/{birdId}")]
-        public ActionResult GetBirdSound(string birdId)
-        {
-            // TODO: find bird sound in DB using birdId
-            // I.e.
-            var collection = _database.GetCollection<Bird>("nzbirdspecies");
-            ////add filter to check duplicate records on basis of bird name
-            //var filter = Builders<BsonDocument>.Filter.Eq("_id", birdId);
-            ////will return count if same document exists else will return 0
-            //BsonDocument dbBird = collection.Find(filter).FirstOrDefault();
+        //    var dbBird = collection
+        //        .Find(Builders<Bird>.Filter.Eq("_id", birdId))
+        //        .FirstOrDefault();
 
-            var dbBird = collection
-                .Find(Builders<Bird>.Filter.Eq("_id", birdId))
-                .FirstOrDefault();
+        //    // Get sound from file.
+        //    // Eventually we will get the wav file from the database so this will be no longer needed
+        //    //var fileBytes = System.IO.File.ReadAllBytes("Controllers/birdcall.wav");
+        //    //var fileBytes = System.IO.File.ReadAllBytes(dbBird.Name);
 
-            // Get sound from file.
-            // Eventually we will get the wav file from the database so this will be no longer needed
-            var fileBytes = System.IO.File.ReadAllBytes("Controllers/birdcall.wav");
 
-            // Eventually we should have the sound stored in the db
-            //var fileBytes = dbBird.GetValue("sound").AsByteArray;
+        //    //TEST CODE BELOW
+        //    //convert to Linq Queryable
+        //    var birdsQueryable = collection.AsQueryable();
 
-            return File(fileBytes, "text/plain", Path.GetFileName("birdsound"));
-         }
+        //    //convert to IList
+        //    var birdsList = birdsQueryable.ToList();
+
+        //    // get unique orders from the list
+        //    var soundList = birdsList.Select(bird => bird.Sound1);
+        //    //TEST CODE END
+
+
+        //    // Eventually we should have the sound stored in the db
+        //    //var fileBytes = dbBird.GetValue("Sound1").AsByteArray;
+
+        //    //return File(fileBytes, "text/plain", Path.GetFileName("birdsound"));
+        //    return Ok(soundList);
+        //}
+
+        //[HttpGet("getSoundTEST")]
+        //public ActionResult GetBirdSoundTEST2()
+        //{
+        //    // TODO: find bird sound in DB using birdId
+        //    // I.e.
+        //    var collection = _database.GetCollection<Bird>("nzbirdspecies");
+        //    ////add filter to check duplicate records on basis of bird name
+        //    //var filter = Builders<BsonDocument>.Filter.Eq("_id", birdId);
+        //    ////will return count if same document exists else will return 0
+        //    //BsonDocument dbBird = collection.Find(filter).FirstOrDefault();
+
+
+        //    // Get sound from file.
+        //    // Eventually we will get the wav file from the database so this will be no longer needed
+        //    //var fileBytes = System.IO.File.ReadAllBytes("Controllers/birdcall.wav");
+        //    //var fileBytes = System.IO.File.ReadAllBytes(dbBird.Name);
+
+
+        //    //TEST CODE BELOW
+        //    //convert to Linq Queryable
+        //    var birdsQueryable = collection.AsQueryable();
+
+        //    //convert to IList
+        //    var birdsList = birdsQueryable.ToList();
+
+        //    // get unique orders from the list
+        //    var soundList = birdsList.Select(bird => bird.Sound1);
+
+
+
+        //    //TEST CODE END
+
+
+        //    // Eventually we should have the sound stored in the db
+        //    //var fileBytes = dbBird.GetValue("Sound1").AsByteArray;
+
+        //    //return File(fileBytes, "text/plain", Path.GetFileName("birdsound"));
+        //    return Ok(soundList);
+        //}
+
+
+
+        //[HttpGet("getSoundTEST2/{birdId}")]
+        //public ActionResult GetSoundTEST(string birdId)
+        //{
+        //    var collection = _database.GetCollection<Bird>("nzbirdspecies");
+        //    ////add filter to check duplicate records on basis of bird name
+        //    //var filter = Builders<BsonDocument>.Filter.Eq("_id", birdId);
+        //    ////will return count if same document exists else will return 0
+        //    //BsonDocument dbBird = collection.Find(filter).FirstOrDefault();
+
+        //    var dbBird = collection
+        //        .Find(Builders<Bird>.Filter.Eq("_id", birdId))
+        //        .FirstOrDefault();
+
+        //    var sound = dbBird.Sound1;
+
+
+        //    // get unique orders from the list
+        //    var soundList = sound.Select(bird => dbBird.Sound1);
+
+
+        //    //OK converts to JSON 
+        //    return Ok(sound.FirstOrDefault());
+        //}
+        #endregion MariyaSectionTestSoundEndpoints
+
 
         [HttpGet("getQuestion")]
         public ActionResult GetQuestion()
