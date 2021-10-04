@@ -19,15 +19,17 @@ function compulsoryField() {
 function orderOptions() {
     $.get("https://localhost:44358/order", function (birdOrders, status) {
 
+       
         // loop through all data (list of bird objects) returned from the server
         $.each(birdOrders, function (i, birdOrder) {
-
+           
             var radioOrd = [birdOrder];
             for (var value of radioOrd) {
                 $('#orderButtons')
                     .append(`<input type="checkbox" id="${value}" name="contact" value="${value}">`)
                     .append(`<label for="${value}">${value}</label></div>`)
-                    .append(` `);
+                    .append(` `)
+
             }
         });
     });
@@ -97,5 +99,6 @@ $(document).ready(function () {
     // i.e. when the user hasn't had a chance to enter any data
     statusOptions();
     habitatOptions();
-    orderOptions()
+    orderOptions();
+    alphabeticalSort()
 });

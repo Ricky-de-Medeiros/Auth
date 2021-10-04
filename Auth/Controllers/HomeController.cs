@@ -245,12 +245,14 @@ namespace Auth.Controllers
             //convert to IList
             var birdsList = birdsQueryable.ToList();
 
-            // get unique habitats and split by commas
+            // get unique orders from the list
             var orderList = birdsList.Select(bird => bird.Order).Distinct();
 
             //OK converts to JSON 
             return Ok(orderList);
         }
+
+
 
         [HttpGet("status")]
         public ActionResult GetStatus()
