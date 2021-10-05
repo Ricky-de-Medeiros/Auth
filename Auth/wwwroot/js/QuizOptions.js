@@ -3,6 +3,8 @@
 // i.e. user will never get their results, as there won't be a quiz end
 
 function compulsoryField() {
+    var phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+
     //connects to quizOptions form and the number text-field
     let x = document.forms["quizOptions"]["number"].value;
     if (x == "") {
@@ -11,6 +13,12 @@ function compulsoryField() {
         // creates a focus on the field i.e. the typing bar is automatically placed in the required field box
         document.getElementById("compulsoryNumber").focus();
         return false;
+    }
+    else if (x.value.match(phoneno)) {
+        alert("yay");
+    }
+    else {
+        alert("aww");
     }
 }
 
