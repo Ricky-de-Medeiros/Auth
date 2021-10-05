@@ -47,8 +47,12 @@ var state = {
     orderData: []
 };
 
+
+
 $(document).ready(function () {
-            
+
+
+
     $.get("https://localhost:44358/birdquiz", function (birds, status) {
         state.birdData = birds;
         // get select (dropdown box)
@@ -60,18 +64,23 @@ $(document).ready(function () {
                     + '<td>' + bird.name + '</td>'
                     //+ '<td>' + bird.order + '</td>'
                     //+ '<td>' + bird.status + '</td>'
-                + '</tr>'
+                + '</tr>'                               
             );
-                          
+
+            
+
         });
 
-        // for each bird - make a dropdown option (html element) within/add to the select box element?
+        
 
-    });
+    });    
+});
+
+
 
     //DO NOT DELETE BELOW CODE: Example of how to link to a button click function
     //$("#hellobtn").click(function () {        
     //});
-});
+
 
 

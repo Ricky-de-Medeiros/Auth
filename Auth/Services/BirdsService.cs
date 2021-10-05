@@ -13,12 +13,12 @@ namespace Auth.Services
         {            
             var document = new BsonDocument
                 {
-                    { "_id", bird._id },
+                    //{ "_id", bird._id },
                     { "Name", bird.Name },
                     { "Order", bird.Order },
                     { "Status", bird.Status },
                     { "Habitat", bird.Habitat },
-                    { "Number", bird.Number },
+                    //{ "Number", bird.Number },
                 };
             return document;
         }

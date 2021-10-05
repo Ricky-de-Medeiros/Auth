@@ -3,8 +3,6 @@
 // i.e. user will never get their results, as there won't be a quiz end
 
 function compulsoryField() {
-    var phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
-
     //connects to quizOptions form and the number text-field
     let x = document.forms["quizOptions"]["number"].value;
     if (x == "") {
@@ -14,20 +12,13 @@ function compulsoryField() {
         document.getElementById("compulsoryNumber").focus();
         return false;
     }
-    else if (x.value.match(phoneno)) {
-        alert("yay");
-    }
-    else {
-        alert("aww");
-    }
 }
 
 
 
 function orderOptions() {
     $.get("https://localhost:44358/order", function (birdOrders, status) {
-
-       
+               
         // loop through all data (list of bird objects) returned from the server
         $.each(birdOrders, function (i, birdOrder) {
            
@@ -102,6 +93,7 @@ function habitatOptions() {
     });
 }
 
+
 $(document).ready(function () {
     // the function compulsoryField() is not called here, as then the alert will be generated on page load
     // i.e. when the user hasn't had a chance to enter any data
@@ -109,4 +101,5 @@ $(document).ready(function () {
     habitatOptions();
     orderOptions();
     alphabeticalSort()
+    
 });
