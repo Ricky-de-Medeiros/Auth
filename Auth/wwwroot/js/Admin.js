@@ -20,6 +20,8 @@ function myFunctionSet(x) {
     inputID.val(inputID.val() + bird._id);
     var inputNum = $("#bnum");
     inputNum.val(inputNum.val() + bird.number);
+    var inputCall = $("#bcall");
+    inputCall.val(inputCall.val() + bird.call);
 }
 
 //clears all the textbox data, so when person clicks on another list item
