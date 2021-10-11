@@ -38,7 +38,7 @@ function getNextQuestion() {
             $("#result").text("Your previous answer is wrong. Correct answer is: " + bird.name);
         }
         else if (strUser == bird.name) {
-            $("#result").text("Your answer " + bird.name + "is correct!!!");
+            $("#result").text("Your answer: " + bird.name + " is correct!!!");
         }
 
         changeQuestionNumber();        

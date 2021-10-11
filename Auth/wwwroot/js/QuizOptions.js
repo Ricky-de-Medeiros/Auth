@@ -100,6 +100,7 @@ $(document).ready(function () {
     statusOptions();
     habitatOptions();
     orderOptions();
+    difficultyOptions();
     alphabeticalSort()
     
 });
