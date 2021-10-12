@@ -30,9 +30,7 @@ function getNextQuestion() {
         
         audio.src = bird.sound1;
         audio.load();
-
-        $("#answer").text(bird.name);
-
+                
         //below code checks for user-selected option vs correct answer
         if (strUser != bird.name) {
             $("#result").text("Your previous answer is wrong. Correct answer is: " + bird.name);
