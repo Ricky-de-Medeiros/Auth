@@ -13,11 +13,12 @@
 
 
 
+
 <body>
     <div class="QPQuestions">
         <div class="Question">
             <h2>Quiz</h2>
-            <h3>Question <label id="changeQNumber" for="Question_1">0</label></h3>
+            <h3>Question <label id="changeQNumber" for="Question_1">1</label></h3>
             <h4><label id="randomBird"></label></h4>
             <h4>Listen to the audio and determine the species. </h4>
 
@@ -56,12 +57,9 @@
                 Your browser does not support the audio element.
             </audio><br>
 
-            <audio id="idOfMusicElement2" controls>
-                @*TODO: pass an ID at the end of the URL below. *@
-                Your browser does not support the audio element.
-            </audio><br>
 
-            <p id="answer"></p>
+            
+            <p id="result"></p>
 
             @*Code for select list box*@
             <select name="answeroptions" class="answers" id="12345">
@@ -70,6 +68,8 @@
             <div class="buttons1">
                 <button onclick="getNextQuestion()"><a style="text-decoration: none;">Next ></a></button>
             </div>
+
+
             <br><a href="QuizEnd.html"><button type="button" class="buttonsopt" style="margin:10px;">Submit</button></a>
 
 

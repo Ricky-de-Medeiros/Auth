@@ -254,6 +254,25 @@ namespace Auth.Controllers
         }
 
 
+        [HttpGet("difficultyLevel")]
+        public ActionResult GetDifficultyLevel()
+        {
+            var birdsMongoCollection = _database.GetCollection<Bird>("nzbirdspecies");
+
+            //convert to Linq Queryable
+            var birdsQueryable = birdsMongoCollection.AsQueryable();
+
+            //convert to IList
+            var birdsList = birdsQueryable.ToList();
+
+            // get unique orders from the list
+            var difficultyList = birdsList.Select(bird => bird.Difficulty).Distinct();
+
+            //OK converts to JSON 
+            return Ok(difficultyList);
+        }
+
+
 
         [HttpGet("status")]
         public ActionResult GetStatus()

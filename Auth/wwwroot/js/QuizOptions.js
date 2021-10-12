@@ -18,8 +18,7 @@ function compulsoryField() {
 
 function orderOptions() {
     $.get("https://localhost:44358/order", function (birdOrders, status) {
-
-       
+               
         // loop through all data (list of bird objects) returned from the server
         $.each(birdOrders, function (i, birdOrder) {
            
@@ -94,11 +93,14 @@ function habitatOptions() {
     });
 }
 
+
 $(document).ready(function () {
     // the function compulsoryField() is not called here, as then the alert will be generated on page load
     // i.e. when the user hasn't had a chance to enter any data
     statusOptions();
     habitatOptions();
     orderOptions();
+    difficultyOptions();
     alphabeticalSort()
+    
 });

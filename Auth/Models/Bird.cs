@@ -20,6 +20,8 @@ namespace Auth.Models
         public string Status { get; set; }
         public string Habitat { get; set; }
 
+        public string Difficulty { get; set; }
+
         public string Type1 { get; set; }
 
         //public byte[] Sound1 { get; set; }
