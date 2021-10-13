@@ -58,7 +58,7 @@
             </audio><br>
 
 
-            
+
             <p id="result"></p>
 
             @*Code for select list box*@
@@ -70,8 +70,13 @@
             </div>
 
 
-            <br><a href="QuizEnd.html"><button type="button" class="buttonsopt" style="margin:10px;">Submit</button></a>
-
+            <br>
+            @*<a href="QuizEnd.html"><button type="button" class="buttonsopt" style="margin:10px;">Submit</button></a>*@
+        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="QuizEnd">
+            <button type="button" class="buttonsopt">
+                Submit
+            </button>
+        </a>
 
         </div>
 

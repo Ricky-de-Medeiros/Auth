@@ -59,6 +59,11 @@ namespace Auth.Controllers
             return View();
         }
 
+        public IActionResult QuizEnd()
+        {
+            return View();
+        }
+
 
         public IActionResult QuizStart()
         {
